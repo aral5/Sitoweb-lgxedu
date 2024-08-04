@@ -4,7 +4,7 @@ import { ref as storageRef, uploadBytes, getDownloadURL } from 'https://www.gsta
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
 
 // Get a list of cities from your database
 async function getCities(db) {

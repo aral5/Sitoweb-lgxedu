@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* Reset e stili di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Imposta altezza 100% per il body e l'html */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #dbdfe4;
+    display: flex;
+    flex-direction: column; /* Dispone gli elementi in colonna */
+    animation: fadeIn 1s ease-out;
+    position: relative; /* Necessario per posizionare il pseudo-elemento */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #dbdfe4 10px), repeating-linear-gradient(#cacdd355, #cacdd3);
+    background-repeat: repeat; /* Ripete il pattern su tutta l'area dello sfondo */
+    background-size: auto; /* Mantiene la dimensione originale del pattern */
+    background-attachment: fixed; /* Mantiene il pattern fisso mentre scorri */
+    opacity: 0.6; /* Opacità solo per il pattern */
+    z-index: -1; /* Posiziona il pattern dietro al contenuto */
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Imposta un'altezza fissa per l'header */
+}
+
+/* Logo */
+.logo {
+    max-width: 180px;
+    display: block;
+    transition: filter 0.2s ease; /* Transizione per il cambiamento di colore */
+}
+.logo:hover {
+    filter: invert(1) grayscale(100%) brightness(0) contrast(100%); /* Adatta i filtri per il colore desiderato */
+}
+/* Main content */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1; /* Permette al main di occupare tutto lo spazio disponibile */
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #3a3a3a;
+}
+
+/* Cards */
+.cards {
+    display: flex; /* Usa Flexbox per disporre gli elementi orizzontalmente */
+    gap: 20px; /* Aggiungi spazio tra le card */
+    justify-content: center; /* Centra le card orizzontalmente */
+    flex-wrap: wrap; /* Consenti alle card di andare a capo se non ci sta più spazio */
+    padding: 20px; /* Aggiungi un po' di padding alla sezione */
+}
+
+.card {
+    flex: 1 1 calc(33.333% - 20px); /* Calcola la larghezza delle card per farne tre per riga */
+    box-sizing: border-box; /* Include padding e bordo nella larghezza e altezza */
+    background: #f5f5f5; /* Colore di sfondo delle card */
+    border: 1px solid #ddd; /* Bordo delle card */
+    border-radius: 8px; /* Angoli arrotondati delle card */
+    padding: 20px; /* Padding interno delle card */
+    text-align: center; /* Allinea il testo al centro */
+    text-decoration: none; /* Rimuove la sottolineatura dai link */
+    color: #3a3a3a; /* Colore del testo */
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; /* Transizioni per l'effetto hover */
+    cursor: pointer;
+}
+
+.card:hover {
+    background: #ffffff; /* Cambia il colore di sfondo al passaggio del mouse */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Aumenta l'ombra */
+    transform: scale(1.05); /* Zoom leggero */
+    color: #323232; /* Cambia il colore del testo in bianco al passaggio del mouse */
+}
+
+.card h2 {
+    color: #005782;
+    margin-bottom: 1rem;
+}
+
+.card:hover h2 {
+    color: #323232; /* Cambia il colore del titolo card in bianco al passaggio del mouse */
+}
+
+.card p {
+    color: #3a3a3a;
+}
+
+.card:hover p {
+    color: #3a3a3a; /* Cambia il colore del paragrafo in bianco al passaggio del mouse */
+}
+/* Footer */
+footer {
+    background-color: #005782;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem; /* Margine per separare il footer dal contenuto sopra */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column; /* Le card si dispongono in colonna sui dispositivi più piccoli */
+        align-items: center; /* Centra le card */
+    }
+
+    .card {
+        flex: 1 1 100%; /* Le card occupano l'intera larghezza sui dispositivi più piccoli */
+        max-width: 600px; /* Larghezza massima delle card sui dispositivi più piccoli */
+    }
+}

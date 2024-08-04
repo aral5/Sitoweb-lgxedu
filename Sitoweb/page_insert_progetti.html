@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG for EDU - Piattaforma Educativa</title>
+    <link rel="stylesheet" href="styles_prog_insrt.css">
+    
+</head>
+
+<body>
+    
+    <h1>Inserisci il tuo Progetto</h1>
+    <form id="progettoForm">
+        <label for="titolo">Titolo del Progetto:</label><br>
+        <input type="text" id="titolo" name="titolo" required><br>
+        
+        <label for="descrizione">Descrizione:</label><br>
+        <textarea id="descrizione" name="descrizione" required></textarea><br>
+        
+        
+        <label for="file">Carica il Progetto:</label><br>
+        <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt,.odt,.ppt,.pptx,.xls,.xlsx,.jpg,.jpeg" required><br>
+        
+        <label for="immagine">Immagine di Copertina (opzionale):</label><br>
+        <input type="file" id="immagine" name="immagine"><br>
+        
+        
+        <input type="submit" value="Inserisci Progetto">
+    </form>
+
+    <a href="page_view_progetti.html" id="view">Visualizza Progetti</a>
+
+  
+    <script type="module" src="firebase-config.js"></script>
+   
+
+</body>
+</html>

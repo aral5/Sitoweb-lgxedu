@@ -1,5 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
 import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getStorage } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js';
 
@@ -16,7 +17,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const firestore = getFirestore(app);
 const storage = getStorage(app);
 const analytics = getAnalytics(app);
 
-export { db, storage, analytics };
+export { db, firestore, storage, analytics };

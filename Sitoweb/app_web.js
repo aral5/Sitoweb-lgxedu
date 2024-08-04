@@ -1,18 +1,19 @@
 import { db, storage } from './firebase-config.js';
 import { ref, push, set, onValue } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
-// Get a list of cities from your database
-async function getCities(db) {
+
+
+// Funzione per ottenere le città (se necessario)
+async function getCities() {
   const citiesCol = collection(db, 'cities');
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => doc.data());
   return cityList;
 }
+
 // Funzione per aggiungere animazione al click
 function addClickAnimation(elementId) {
   const element = document.getElementById(elementId);

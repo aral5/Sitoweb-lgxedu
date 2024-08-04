@@ -1,38 +1,43 @@
 // Funzione per aggiungere animazione al click
 function addClickAnimation(elementId) {
-    const element = document.getElementById(elementId);
-    element.addEventListener('click', function(e) {
-        e.preventDefault();
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-            // Qui puoi aggiungere la navigazione alla pagina corrispondente
-            console.log(`Navigating to ${elementId} page...`);
-        }, 200);
-    });
+  const element = document.getElementById(elementId);
+  element.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+          this.style.transform = 'scale(1)';
+          // Debug: Aggiungi un log per verificare l'ID dell'elemento
+          console.log(`Navigating to ${elementId} page...`);
+          // Qui puoi aggiungere la navigazione alla pagina corrispondente
+          const href = this.getAttribute('href');
+          if (href && href !== '#') {
+              window.location.href = href;
+          }
+      }, 200);
+  });
 }
 
 // Aggiungi l'animazione a tutte le carte
 function initializeCards() {
-    const cardIds = ['resources', 'projects', 'courses'];
-    cardIds.forEach(addClickAnimation);
+  const cardIds = ['resources', 'projects', 'courses'];
+  cardIds.forEach(addClickAnimation);
 }
 
 // Animazione semplice per il titolo
 function animateTitle() {
-    const title = document.querySelector('h1');
-    title.style.opacity = '0';
-    title.style.transition = 'opacity 1s ease-in-out';
-    
-    setTimeout(() => {
-        title.style.opacity = '1';
-    }, 500);
+  const title = document.querySelector('h1');
+  title.style.opacity = '0';
+  title.style.transition = 'opacity 1s ease-in-out';
+  
+  setTimeout(() => {
+      title.style.opacity = '1';
+  }, 500);
 }
 
 // Inizializza tutte le funzionalità quando il DOM è completamente caricato
 document.addEventListener('DOMContentLoaded', function() {
-    initializeCards();
-    animateTitle();
+  initializeCards();
+  animateTitle();
 });
 
 
